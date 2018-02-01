@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EventFlow</string>
+
+    <string name="event_nest">嵌套事件</string>
+    <string name="event_sequence">顺序事件</string>
+    <string name="event_merge">并发事件</string>
+</resources>
