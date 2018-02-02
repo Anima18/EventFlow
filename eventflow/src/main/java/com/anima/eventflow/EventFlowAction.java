@@ -7,6 +7,9 @@ import android.content.DialogInterface;
  */
 
 public interface EventFlowAction extends DialogInterface.OnCancelListener {
+
+    EventFlowAction showMessage(String message);
+
     EventFlowAction nest(EventFlow.NestFlatMapCallback callback);
 
     EventFlowAction sequence(Event event);

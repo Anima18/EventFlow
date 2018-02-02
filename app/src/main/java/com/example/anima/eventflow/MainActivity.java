@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        EventFlow.create(this, event1).nest(new EventFlow.NestFlatMapCallback() {
+        EventFlow.create(this, event1).showMessage("嵌套请求中，请稍后...").nest(new EventFlow.NestFlatMapCallback() {
             @Override
             public Event flatMap(final Object o) {
                 return new Event() {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        EventFlow.create(this).sequence(event1).sequence(event2).sequence(event3).subscribe(new EventResultList() {
+        EventFlow.create(this).showMessage("顺序请求中，请稍后...").sequence(event1).sequence(event2).sequence(event3).subscribe(new EventResultList() {
             @Override
             public void onResult(List<Object> dataList) {
                 Log.d(TAG, dataList.toString());
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        EventFlow.create(this).merge(event1).merge(event2).merge(event3).subscribe(new EventResultList() {
+        EventFlow.create(this).showMessage("并发请求中，请稍后...").merge(event1).merge(event2).merge(event3).subscribe(new EventResultList() {
             @Override
             public void onResult(List<Object> dataList) {
                 Log.d(TAG, dataList.toString());

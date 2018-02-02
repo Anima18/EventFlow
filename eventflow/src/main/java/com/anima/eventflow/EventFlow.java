@@ -33,7 +33,6 @@ public class EventFlow implements EventFlowAction {
     private EventFlow(Context context, Event event) {
         this.context = context;
         this.progressDialog = new EventProgressDialogImpl(context, ProgressDialog.STYLE_SPINNER, this);
-        this.progressDialog.showProgress("正在处理中，请稍后...");
         if(event != null) {
             this.observable = event.exec();
             this.eventList.add(event);
@@ -49,6 +48,12 @@ public class EventFlow implements EventFlowAction {
 
     public static EventFlow create(Context context, Event event) {
         return new EventFlow(context, event);
+    }
+
+    @Override
+    public EventFlowAction showMessage(String message) {
+        this.progressDialog.showProgress(message);
+        return this;
     }
 
     @Override
@@ -144,33 +149,6 @@ public class EventFlow implements EventFlowAction {
                     }
                 });
     }
-
-    /*@Override
-    public void subscribe(final Action1 action) {
-        this.subscription = this.observable
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<Object>() {
-                    @Override
-                    public void onCompleted() {
-                        //EventProgressDialogImpl.getInstance().hideProgress();
-                        progressDialog.hideProgress();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        cancelSubscription();
-                    }
-
-                    @Override
-                    public void onNext(Object o) {
-                        action.call(o);
-                        cancelSubscription();
-                    }
-                });
-    }*/
-
     @Override
     public void cancelSubscription() {
         progressDialog.hideProgress();
