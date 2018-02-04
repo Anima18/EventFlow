@@ -41,16 +41,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 };
             }
-        }).nest(new EventFlow.NestFlatMapCallback() {
-            @Override
-            public Event flatMap(final Object o) {
-                return new Event() {
-                    @Override
-                    protected Object run() {
-                        return o.toString() + "1";
-                    }
-                };
-            }
         }).subscribe(new EventResult() {
             @Override
             public void onResult(Object data) {
@@ -81,19 +71,16 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Event event3 = new Event() {
-            @Override
-            protected Object run() {
-                return "3";
-            }
-        };
-
-        EventFlow.create(this).showMessage("顺序请求中，请稍后...").sequence(event1).sequence(event2).sequence(event3).subscribe(new EventResultList() {
-            @Override
-            public void onResult(List<Object> dataList) {
-                Log.d(TAG, dataList.toString());
-            }
-        });
+        EventFlow.create(this)
+                .showMessage("顺序请求中，请稍后...")
+                .sequence(event1)
+                .sequence(event2)
+                .subscribe(new EventResultList() {
+                    @Override
+                    public void onResult(List<Object> dataList) {
+                        Log.d(TAG, dataList.toString());
+                    }
+                });
     }
 
     public void merge(View view) {
@@ -117,18 +104,15 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Event event3 = new Event() {
-            @Override
-            protected Object run() {
-                return "3";
-            }
-        };
-
-        EventFlow.create(this).showMessage("并发请求中，请稍后...").merge(event1).merge(event2).merge(event3).subscribe(new EventResultList() {
-            @Override
-            public void onResult(List<Object> dataList) {
-                Log.d(TAG, dataList.toString());
-            }
-        });
+        EventFlow.create(this)
+                .showMessage("并发请求中，请稍后...")
+                .merge(event1)
+                .merge(event2)
+                .subscribe(new EventResultList() {
+                    @Override
+                    public void onResult(List<Object> dataList) {
+                        Log.d(TAG, dataList.toString());
+                    }
+                });
     }
 }

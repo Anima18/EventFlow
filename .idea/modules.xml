@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EventFlow.iml" filepath="$PROJECT_DIR$/EventFlow.iml" />
+      <module fileurl="file://E:\code\GitHub\EventFlow\EventFlow.iml" filepath="E:\code\GitHub\EventFlow\EventFlow.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\code\GitHub\EventFlow\app\app.iml" filepath="E:\code\GitHub\EventFlow\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/eventflow/eventflow.iml" filepath="$PROJECT_DIR$/eventflow/eventflow.iml" />
+      <module fileurl="file://E:\code\GitHub\EventFlow\eventflow\eventflow.iml" filepath="E:\code\GitHub\EventFlow\eventflow\eventflow.iml" />
     </modules>
   </component>
 </project>
