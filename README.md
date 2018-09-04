@@ -16,7 +16,7 @@ EventFlow是对RxJava进行封装，并提供一下功能：
 
 
 ```
-compile 'com.anima:EventFlow:1.0.3'
+compile 'com.anima:EventFlow:1.0.4'
 ```
 
 ## 示例
