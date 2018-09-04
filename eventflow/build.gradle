@@ -7,7 +7,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -67,7 +67,7 @@ publish{
     userOrg = 'anima'//bintray.com的用户名
     groupId = 'com.anima'//jcenter上的路径
     artifactId = 'EventFlow'//项目名称
-    publishVersion = '1.0.3'//版本号
+    publishVersion = '1.0.4'//版本号
     desc = '一个Android的事件流框架，简化多重事件传递。'//描述，不重要
     website = siteUrl//项目主页
 }

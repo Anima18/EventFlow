@@ -22,7 +22,4 @@ public interface EventFlowAction extends DialogInterface.OnCancelListener {
 
     void cancelSubscription();
 
-/*    <T> void subscribe(EventResult<T> callback);
-
-    <T> void subscribe(EventResultList<T> callback);*/
 }
